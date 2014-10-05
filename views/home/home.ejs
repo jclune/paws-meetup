@@ -1,0 +1,19 @@
+<!-- Default home page -->
+<div>
+
+    <table>
+        <thead>
+            <tr><th>First name</th><th>Last name</th></tr>
+        </thead>
+        <tbody data-bind="foreach: users">
+            <tr>
+                <td>email<span data-bind="text: user.email"></span></li>
+                <td>id<span data-bind="text: user.id"></span></li>
+            </tr>
+        </tbody>
+    </table>
+
+    <form action="auth/logout" method="post">
+        <input type="submit" value="logout"/>
+    </form>
+</div>
