@@ -18,8 +18,14 @@
 
       You can link any CSS, LESS, or image files in your `assets` directory
       as you would normally: using <link/> tags.
-      
+
     -->
+    <link rel="stylsheet" type="text/css" href="styles/bootstrap-theme.min.css" />
+    <link rel="stylsheet" type="text/css" href="styles/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/base.css" media="all">
+    <link rel="stylesheet" type="text/css" href="styles/style.css" media="all">
+
 
     <!--
 
@@ -38,9 +44,35 @@
   <body>
 
     <!-- Include the view file for the current controller/route -->
+    <header>
+            <div class="in cl">
+                <section class="headLogo cl">
+                    <a href=""><img src="images/logo.png"></a>
+                </section><!-- / .headLine -->                
+
+                <section class="headMenu cl">
+                    <ul>
+                        <li><a href="" class="redBtn">Sign up</a></li>
+                        <li><a href="">about us</a></li>
+                        <li><a href="">contact</a></li>
+                    </ul>
+
+                </section><!-- / .headMain -->                
+            </div>
+    </header>
     <%- body %>
 
-
+    <div style="padding-left:20px; padding-bottom:20px">
+      <ul>
+        Site map<br/>
+        <li><a href="/profile_edit"> Edit Profile</a></li><br/>
+        <li><a href="/profile">Profile</a> </li><br/>
+        <li><a href="/profile_list"> Profile List</a></li><br/>
+        <li><a href="/meetup_edit"> Create Meetup</a></li><br/>
+        <li><a href="/meetups">Meetup </a> </li><br/>
+        <li><a href="/meetup_list"> Meetup List</a></li><br/>   
+      </ul>
+    </div>
     <!--
 
       Client-side Javascript
@@ -62,9 +94,54 @@
 
     <script type='text/javascript' src='js/knockout-latest.js'></script>
 
-    <script type='text/javascript' src='js/knockout.mapping.js'></script>
-
     <script type='text/javascript' src='js/viewModel.js'></script>
+
+    <script type='text/javascript' src='js/bootstrap.min.js'></script>
+
+    <script type='text/javascript' src="js/jquery-1.9.1.min.js"></script>
+    
+    <script type='text/javascript' src="js/common.js"></script>
+
+    <script src="js/jquery.bottom-1.0.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".contents").bottom({proximity: 0.05});
+            $(".contents").bind("bottom", function() {
+                var obj = $(this);
+                // this event could be triggered multiple times
+                // while waiting for the content to grow or the area to be scrolled
+                if (!obj.data("loading")) {
+                    // use a variable to skip processing until we get more data
+                    obj.data("loading", true);
+
+                    $('#wrap ol').append('<li>Loading...</li>');
+                    // Use setTimeout to simulate an ajax call
+                    setTimeout(function() {
+                        $('#wrap ol li:last').remove();
+                        $('#wrap ol').append('<li>Not just another item</li><li>Not just another item</li><li>Not just another item</li>');
+                        obj.data("loading", false);
+                    }, 1500);
+                }
+            });
+            $(window).bottom();
+            $(window).bind("bottom", function() {
+
+                for (cnt = 0; cnt < 3; cnt++) {
+
+                    fileName = Math.floor(Math.random() * 6) + 1;
+                    $("#list").append('<li class="flL mb30"><a href="/test/pawsmeetup/preview/meetup" class="over mr20"><img src="images/meetup' + fileName + '.png" ><p class="mt10 mb10 fs16 fwB"><span class="mr20">参加者</span><span class="mr20">99 / 100</span></p><p class="mb20 fwB fs14 grayColor">Oct.5 2014</p></a></li>');
+                    fileName = Math.floor(Math.random() * 6) + 1;
+                    $("#list").append('<li class="flL mb30"><a href="/test/pawsmeetup/preview/meetup" class="over mr20"><img src="images/meetup' + fileName + '.png" ><p class="mt10 mb10 fs16 fwB"><span class="mr20">参加者</span><span class="mr20">99 / 100</span><span class="limit">残り1名</span></p><p class="mb20 fwB fs14 grayColor">Oct.5 2014</p></a></li>');
+                    fileName = Math.floor(Math.random() * 6) + 1;
+                    $("#list").append('<li class="flL mb30"><a href="/test/pawsmeetup/preview/meetup" class="over"><img src="images/meetup' + fileName + '.png" ><p class="mt10 mb10 fs16 fwB"><span class="mr20">参加者</span><span class="mr20">99 / 100</span><span class="limit">残り1名</span></p><p class="mb20 fwB fs14 grayColor">Oct.5 2014</p></a></li>');
+                }
+
+            });
+        });
+
+    </script>
+
 
     <!-- Your scripts here? -->
     <!-- Your scripts here? -->

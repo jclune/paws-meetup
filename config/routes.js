@@ -39,6 +39,24 @@ module.exports.routes = {
   '/home': {
     view: 'home/home'
   },
+  '/profile_list': {
+    view: 'home/profile_list'
+  },
+  '/profile_edit': {
+    view: 'home/profile_edit'
+  },
+  '/profile': {
+    view: 'home/profile'
+  },
+  '/meetup_list': {
+    view: 'home/meetup_list'
+  },
+  '/meetup_edit': {
+    view: 'home/meetup_edit'
+  },
+  '/meetups': {
+    view: 'home/meetups'
+  },
 
   'post auth/login': 'AuthController.login',
 

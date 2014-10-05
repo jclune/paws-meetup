@@ -1,0 +1,259 @@
+@charset "utf-8";
+
+
+/* リセット
+---------------------------------------------------------- */
+
+html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,time, mark, audio, video {margin: 0; padding: 0; border: 0; font-size: 100%; color : #664F3B; font: inherit; vertical-align: baseline;}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {display: block;}
+body {line-height: 1;font-size:12px;}
+ol, ul {list-style: none;}
+blockquote, q {quotes: none;}
+blockquote:before, blockquote:after,q:before, q:after { content: ''; content: none;}
+table {border-collapse: collapse;border-spacing: 0;}
+
+
+/* ベースフォント
+---------------------------------------------------------- */
+html,body{font-family:"メイリオ", Meiryo,"ヒラギノ角ゴPro W3", "Hiragino Kaku Gothic Pro", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", Arial, Helvetica, Verdana, sans-serif; font-size:12px; color:#664F3B; line-height:1.3em; text-align:left;}
+
+
+
+/* 汎用セレクタ
+---------------------------------------------------------- */
+
+/*clear*/
+.cl {display: block; min-height: 1%;}
+.cl:after {	clear: both;content:".";display: block;	height: 0;visibility: hidden;}
+* html .cl {height: 1%;	/*\*//*/height: auto;overflow: hidden;/**/}
+.clears {display:block; clear:both; height:0px; overflow:hidden; padding:0;	margin:0; border:0px;}
+
+.in{width:1000px !important;margin-left:auto;margin-right:auto;}
+
+h2{font-weight:bold;font-size:14px;line-height:20px;}
+
+/*font*/
+.fwB{font-weight:bold !important;}
+.fs11{font-size:11px !important;}
+.fs14{font-size:14px !important;}
+.fs15{font-size:15px !important;}
+.fs16{font-size:16px !important;}
+.fs20{font-size:20px !important;}
+.fs26{font-size:26px !important;}
+.fs30{font-size:30px !important;}
+
+.fRed{color:#B20000 !important;}
+
+.bgYellow{background: url("../img/parts/bg_yellow.png")}
+.bgWhite{background: url("../img/parts/bg_white.png")}
+.bgRed{background: url("../img/parts/bg_red.png")}
+
+.grayColor{color:#AAAAAA;}
+.hoverBgBrown:hover{background:#EBE3DE;}
+.hoverBgGreen:hover{background:#DEFCDA;}
+/*margin*/
+.m0{margin:0 !important;}
+.m0auto{margin:0 auto !important;}
+
+.mb0{margin-bottom:0px !important;}
+.mb5{margin-bottom:5px !important;}
+.mb10{margin-bottom:10px !important;}
+.mb15{margin-bottom:15px !important;}
+.mb20{margin-bottom:20px !important;}
+.mb25{margin-bottom:25px !important;}
+.mb30{margin-bottom:30px !important;}
+.mb40{margin-bottom:40px !important;}
+.mb50{margin-bottom:50px !important;}
+.mb100{margin-bottom:100px !important;}
+.mb200{margin-bottom:200px !important;}
+
+.mt0{margin-top:0px !important;}
+.mt5{margin-top:5px !important;}
+.mt10{margin-top:10px !important;}
+.mt15{margin-top:15px !important;}
+.mt20{margin-top:20px !important;}
+.mt24{margin-top:24px !important;}
+.mt25{margin-top:25px !important;}
+.mt30{margin-top:30px !important;}
+.mt40{margin-top:40px !important;}
+.mt50{margin-top:50px !important;}
+
+.ml5{margin-left:5px !important;}
+.ml10{margin-left:10px !important;}
+.ml20{margin-left:20px !important;}
+.ml30{margin-left:30px !important;}
+
+.mr5{margin-right:5px !important;}
+.mr10{margin-right:10px !important;}
+.mr20{margin-right:20px !important;}
+.mr30{margin-right:30px !important;}
+
+.w50{width:50px !important;}
+.w70{width:70px !important;}
+.w80{width:80px !important;}
+.w90{width:90px !important;}
+.w100{width:100px !important;}
+.w120{width:120px !important;}
+.w150{width:150px !important;}
+.w180{width:180px !important;}
+.w200{width:200px !important;}
+.w220{width:220px !important;}
+.w240{width:240px !important;}
+.w260{width:260px !important;}
+.w280{width:280px !important;}
+.w300{width:300px !important;}
+.w800{width:800px !important;}
+.w820{width:820px !important;}
+.w840{width:840px !important;}
+.w880{width:880px !important;}
+.w960{width:960px !important;}
+.w1000{width:1000px !important;}
+.w100p{width:100% !important;}
+.w90p{width:90% !important;}
+.w95p{width:95% !important;}
+.w96p{width:96% !important;}
+.w97p{width:97% !important;}
+.w98p{width:98% !important;}
+.w99p{width:99% !important;}
+
+.h30{height:30px !important;}
+
+.p0{padding:0 !important;}
+.p10{padding:10px !important;}
+.p20{padding:20px !important;}
+.pt20{padding-top:20px !important;}
+.pb20{padding-bottom:20px !important;}
+.pl10{padding-left:10px !important;}
+.pl20{padding-left:20px !important;}
+.pr10{padding-right:10px !important;}
+.pr20{padding-right:20px !important;}
+
+.in10{padding-right:10px;padding-left:10px;}
+.in20{padding-right:20px;padding-left:20px;}
+
+.lh16{line-height: 16px !important;}
+.lh20{line-height: 20px !important;}
+.lh24{line-height: 24px !important;}
+.lh30{line-height: 30px !important;}
+
+/*align*/
+.taC{text-align:center !important;}
+.taR{text-align:right !important;}
+.taL{text-align:left !important;}
+
+.flL{float:left !important;}
+.flR{float:right !important;}
+
+.dispBlock{display:block !important;}
+.borderBDotted{border-bottom:1px dotted #695443;}
+.borderBDotted2{border-bottom:1px dotted #cccccc;}
+
+.borderBox{border:2px dotted #695443;}
+
+/* js用セレクタ
+---------------------------------------------------------- */
+
+.imgover{/*画像切替rollover*/}
+.over{background: #fff;/*透過型rollover*/}
+.anchor{/*ページ上部スクロールボタン*/}
+
+.thumb100{display:block;width:100px;height:100px;overflow:hidden;position:relative;z-index:1;}
+.thumb150{display:block;width:150px;height:150px;overflow:hidden;position:relative;z-index:1;}
+.thumb200{display:block;width:200px;height:200px;overflow:hidden;position:relative;z-index:1;}
+.thumb300{display:block;width:300px;height:300px;overflow:hidden;position:relative;z-index:1;}
+.thumb100 img,.thumb150 img,.thumb200 img,.thumb300 img{float:left;position:absolute;}
+
+
+
+.a_img{background-repeat: no-repeat;background-size:cover;background-position:center center;display:block;background-color:#FFFFFF;}
+.a_img:hover{filter:alpha(opacity=80);-moz-opacity:0.8;opacity:0.8;}
+.bg_img{background-repeat: no-repeat;background-size:cover;background-position:center center;display:block;background-color:#FFFFFF;}
+
+
+.size10{width:10px;height:10px;}
+.size20{width:20px;height:20px;}
+.size30{width:30px;height:30px;}
+.size40{width:40px;height:40px;}
+.size50{width:50px;height:50px;}
+.size60{width:60px;height:60px;}
+.size70{width:70px;height:70px;}
+.size80{width:80px;height:80px;}
+.size90{width:90px;height:90px;}
+.size100{width:100px;height:100px;}
+.size110{width:110px;height:110px;}
+.size120{width:120px;height:120px;}
+.size130{width:130px;height:130px;}
+.size140{width:140px;height:140px;}
+.size150{width:150px;height:150px;}
+.size160{width:160px;height:160px;}
+.size170{width:170px;height:170px;}
+.size180{width:180px;height:180px;}
+.size190{width:190px;height:190px;}
+.size250{width:250px;height:250px;}
+
+.size98{width: 130px;height: 130px;border: 2px solid #605443;margin: 5px;-webkit-border-radius: 50%;border-radius: 50%;z-index:1;}
+
+
+
+.size100p100{width:100%;height:100px;}
+.size100p110{width:100%;height:110px;}
+.size100p120{width:100%;height:120px;}
+.size100p130{width:100%;height:130px;}
+.size100p140{width:100%;height:140px;}
+.size100p150{width:100%;height:150px;}
+.size100p160{width:100%;height:160px;}
+.size100p170{width:100%;height:170px;}
+.size100p180{width:100%;height:180px;}
+.size100p190{width:100%;height:190px;}
+.size100p200{width:100%;height:200px;}
+.size100p240{width:100%;height:240px;}
+.size100p250{width:100%;height:250px;}
+.size100p300{width:100%;height:300px;}
+.size100p350{width:100%;height:350px;}
+.size100p400{width:100%;height:400px;}
+
+
+.arrowIcon{background: url("../img/parts/icon_arrowRight.png") no-repeat left center;background-size: 16px 16px;}
+.arrowDownIcon{background: url("../img/parts/icon_arrowDown.png") no-repeat left center;background-size: 16px 16px;}
+.arrowDownWhiteIcon{background: url("../img/parts/icon_arrowDownWhite.png") no-repeat left center;background-size: 16px 16px;}
+.pointIcon{background: url("../img/parts/icon_point.png") no-repeat left center;background-size: 16px 16px;}
+
+.BBbrown{border-bottom:1px dotted #EBE3DE;}
+
+.notFound{text-align: center;border: 2px solid #FFCCCC;background: #FFEEEE;padding: 20px;color: red;margin: 30px 0;}
+
+.PosiRelative{position:relative !important;}
+
+.must{background:#CC0000;color:#FFFFFF;padding:3px 5px;font-size:80%;border-radius:3px;}
+
+
+
+.errColor{color:#a94442 !important;}
+.errBg{background:#f2dede !important;}
+.errBorder{border:1px solid #ebccd1 !important;}
+
+.warningColor{color:#8a6d3b !important;}
+.warningBg{background:#fcf8e3 !important;}
+.warningBorder{border:1px solid #faebcc !important;}
+
+.noticeColor{color:#31708f !important;}
+.noticeBg{background:#d9edf7 !important;}
+.noticeBorder{border:1px solid #bce8f1 !important;}
+
+.successColor{color:#3c763d !important;}
+.successBg{background:#dff0d8 !important;}
+.successBorder{border:1px solid #d6e9c6 !important;}
+
+.thumbnail{width:169px;height: 120px;text-align:center;}
+.thumbnail img {max-width: 100%;max-height: 100%;border:1px solid #F0F0E1;}
+
+
+a span.btnLightBrownL{background:#664F3B;border-radius:5px;color:#FFFFFF;padding:8px;width:150px;display:inline-block;}
+a:hover span.btnLightBrownL{background:#D0BC9C;text-decoration:none;}
+
+a span.btnLightRedL{background:#B20000;border-radius:5px;color:#FFFFFF;padding:8px;width:150px;display:inline-block;}
+a:hover span.btnLightRedL{background:#EE0000;text-decoration:none;}
+
+.must{background:#B20000;border-radius:5px;color:#FFFFFF;padding:3px 10px;}

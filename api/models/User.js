@@ -24,6 +24,12 @@ module.exports = {
   	},
   	firstName: 'string',
   	lastName: 'string',
+    bio: 'string',
+    dogName: 'string',
+    dogAge: 'string',
+    dogBreed: 'string',
+    dogGender: 'string',
+    dogBio: 'string',
   	loggedIn: 'boolean',
   	isAdmin: 'boolean',
 

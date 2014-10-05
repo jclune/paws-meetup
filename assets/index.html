@@ -1,51 +1,103 @@
 
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <!--[if lt IE 9]>
+        <script src="/js/html5shiv.min.js"></script>
+        <script src="/js/selectivizr-min.js"></script>
+        <![endif]-->
+        <link rel="stylesheet" type="text/css" href="/test/pawsmeetup/css/base.css" media="all">
+        <link rel="stylesheet" type="text/css" href="/test/pawsmeetup/css/style.css" media="all">
+        <script src="/test/pawsmeetup/js/jquery-1.9.1.min.js"></script>
+        <script src="/test/pawsmeetup/js/common.js"></script>
+    </head>
 
-				
+    <body id="top">
+        <header>
+            <div class="in cl">
+                <section class="headLogo cl">
+                    <a href=""><img src="/test/pawsmeetup/img/logo.png"></a>
+                </section><!-- / .headLine -->                
+
+                <section class="headMenu cl">
+                    <ul>
+                        <li><a href="" class="redBtn">Sign up</a></li>
+                        <li><a href="">about us</a>li>
+                        <li><a href="">contact</a></li>
+                    </ul>
+
+                </section><!-- / .headMain -->                
+            </div>
+        </header>
         <div class="wrap cl">
 
-            <!-- FlexSlider -->
-            <script defer src="js/jquery.flexslider.js"></script>
-
-            <script type="text/javascript">
-                $(window).load(function() {
-                    $('.flexslider').flexslider({
-                        animation: "slide",
-                        start: function(slider) {
-                            $('body').removeClass('loading');
-                        }
-                    });
-                });
-            </script>
-            <div class="mainVisual mb30" style="background: url('/images/mainvisual.png')">
+            <div class="mainVisual mb30">
                 <div class="flexslider">
-                    <ul class="slides">
-                        <li><img src="images/mainvisual.png" ></li>
-                        <li><img src="images/mainvisual.png" ></li>
-                        <li><img src="images/mainvisual.png" ></li>
-                        <li><img src="images/mainvisual.png" ></li>
-                        <li><img src="images/mainvisual.png" ></li>
-                    </ul>
                 </div>
                 <h1>
                     ペットの散歩をより楽しくするMeetup<br>
                     愛犬家たち同士のつながりを築く出逢いの場。
                 </h1>
                 <div class="entryForm">
-							    <form action="auth/login" method="post" >
-							    <ul>
-							         <li><input name="email" type="text" placeholder="email" class="entryFormInput"/></li>
-							         <li><input name="password" type="password" placeholder="password" class="entryFormInput"/> </li>
-							         <li><input type="submit" value="Meetupを探す" class="formLink"/> </li>
-							    </ul>
-							    </form>
+                    <ul>
+                        <li><input type="text" placeholder="Email" class="entryFormInput"></li>
+                        <li><input type="password" placeholder="Password" class="entryFormInput"></li>
+                        <li><a href="/test/pawsmeetup/preview/user" class="formLink">Meetupを探す</a></li>
+                    </ul>
                 </div>
             </div>
 
-						<div class="contents in">
+
+            <script src="/test/pawsmeetup/js/jquery.bottom-1.0.js"></script>
+
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $(".contents").bottom({proximity: 0.05});
+                    $(".contents").bind("bottom", function() {
+                        var obj = $(this);
+                        // this event could be triggered multiple times
+                        // while waiting for the content to grow or the area to be scrolled
+                        if (!obj.data("loading")) {
+                            // use a variable to skip processing until we get more data
+                            obj.data("loading", true);
+
+                            $('#wrap ol').append('<li>Loading...</li>');
+                            // Use setTimeout to simulate an ajax call
+                            setTimeout(function() {
+                                $('#wrap ol li:last').remove();
+                                $('#wrap ol').append('<li>Not just another item</li><li>Not just another item</li><li>Not just another item</li>');
+                                obj.data("loading", false);
+                            }, 1500);
+                        }
+                    });
+                    $(window).bottom();
+                    $(window).bind("bottom", function() {
+
+                        for (cnt = 0; cnt < 3; cnt++) {
+
+                            fileName = Math.floor(Math.random() * 6) + 1;
+                            $("#list").append('<li class="flL mb30"><a href="/test/pawsmeetup/preview/meetup" class="over mr20"><img src="/test/pawsmeetup/img/meetup' + fileName + '.png" ><p class="mt10 mb10 fs16 fwB"><span class="mr20">参加者</span><span class="mr20">99 / 100</span></p><p class="mb20 fwB fs14 grayColor">Oct.5 2014</p></a></li>');
+                            fileName = Math.floor(Math.random() * 6) + 1;
+                            $("#list").append('<li class="flL mb30"><a href="/test/pawsmeetup/preview/meetup" class="over mr20"><img src="/test/pawsmeetup/img/meetup' + fileName + '.png" ><p class="mt10 mb10 fs16 fwB"><span class="mr20">参加者</span><span class="mr20">99 / 100</span><span class="limit">残り1名</span></p><p class="mb20 fwB fs14 grayColor">Oct.5 2014</p></a></li>');
+                            fileName = Math.floor(Math.random() * 6) + 1;
+                            $("#list").append('<li class="flL mb30"><a href="/test/pawsmeetup/preview/meetup" class="over"><img src="/test/pawsmeetup/img/meetup' + fileName + '.png" ><p class="mt10 mb10 fs16 fwB"><span class="mr20">参加者</span><span class="mr20">99 / 100</span><span class="limit">残り1名</span></p><p class="mb20 fwB fs14 grayColor">Oct.5 2014</p></a></li>');
+                        }
+
+                    });
+                });
+
+
+            </script>
+
+            <div class="contents in">
                 <ul class="cl" id="list">
                     <li class="flL mb30">
                         <a href="/test/pawsmeetup/preview/meetup" class="over mr20">
-                            <img src="images/meetup2.png" >
+                            <img src="/test/pawsmeetup/img/meetup2.png" >
                             <p class="mt10 mb10 fs16 fwB">
                                 <span class="mr20">参加者</span>
                                 <span class="mr20">99 / 100</span>
@@ -56,7 +108,7 @@
                     </li>
                     <li class="flL mb30">
                         <a href="/test/pawsmeetup/preview/meetup" class="over mr20">
-                            <img src="images/meetup3.png" >
+                            <img src="/test/pawsmeetup/img/meetup3.png" >
                             <p class="mt10 mb10 fs16 fwB">
                                 <span class="mr20">参加者</span>
                                 <span class="mr20">99 / 100</span>
@@ -67,7 +119,7 @@
                     </li>
                     <li class="flL mb30">
                         <a href="/test/pawsmeetup/preview/meetup" class="over">
-                            <img src="images/meetup4.png" >
+                            <img src="/test/pawsmeetup/img/meetup4.png" >
                             <p class="mt10 mb10 fs16 fwB">
                                 <span class="mr20">参加者</span>
                                 <span class="mr20">99 / 100</span>
@@ -78,7 +130,7 @@
                     </li>
                     <li class="flL mb30">
                         <a href="/test/pawsmeetup/preview/meetup" class="over mr20">
-                            <img src="images/meetup5.png" >
+                            <img src="/test/pawsmeetup/img/meetup5.png" >
                             <p class="mt10 mb10 fs16 fwB">
                                 <span class="mr20">参加者</span>
                                 <span class="mr20">99 / 100</span>
@@ -89,7 +141,7 @@
                     </li>
                     <li class="flL mb30">
                         <a href="/test/pawsmeetup/preview/meetup" class="over mr20">
-                            <img src="images/meetup6.png" >
+                            <img src="/test/pawsmeetup/img/meetup6.png" >
                             <p class="mt10 mb10 fs16 fwB">
                                 <span class="mr20">参加者</span>
                                 <span class="mr20">99 / 100</span>
@@ -100,7 +152,7 @@
                     </li>
                     <li class="flL mb30">
                         <a href="/test/pawsmeetup/preview/meetup" class="over">
-                            <img src="images/meetup1.png" >
+                            <img src="/test/pawsmeetup/img/meetup1.png" >
                             <p class="mt10 mb10 fs16 fwB">
                                 <span class="mr20">参加者</span>
                                 <span class="mr20">99 / 100</span>
@@ -111,7 +163,7 @@
                     </li>
                     <li class="flL mb30">
                         <a href="/test/pawsmeetup/preview/meetup" class="over mr20">
-                            <img src="images/meetup2.png" >
+                            <img src="/test/pawsmeetup/img/meetup2.png" >
                             <p class="mt10 mb10 fs16 fwB">
                                 <span class="mr20">参加者</span>
                                 <span class="mr20">99 / 100</span>
@@ -122,7 +174,7 @@
                     </li>
                     <li class="flL mb30">
                         <a href="/test/pawsmeetup/preview/meetup" class="over mr20">
-                            <img src="images/meetup3.png" >
+                            <img src="/test/pawsmeetup/img/meetup3.png" >
                             <p class="mt10 mb10 fs16 fwB">
                                 <span class="mr20">参加者</span>
                                 <span class="mr20">99 / 100</span>
@@ -133,7 +185,7 @@
                     </li>
                     <li class="flL mb30">
                         <a href="/test/pawsmeetup/preview/meetup" class="over">
-                            <img src="images/meetup4.png" >
+                            <img src="/test/pawsmeetup/img/meetup4.png" >
                             <p class="mt10 mb10 fs16 fwB">
                                 <span class="mr20">参加者</span>
                                 <span class="mr20">99 / 100</span>
@@ -144,7 +196,7 @@
                     </li>
                     <li class="flL mb30">
                         <a href="/test/pawsmeetup/preview/meetup" class="over mr20">
-                            <img src="images/meetup5.png" >
+                            <img src="/test/pawsmeetup/img/meetup5.png" >
                             <p class="mt10 mb10 fs16 fwB">
                                 <span class="mr20">参加者</span>
                                 <span class="mr20">99 / 100</span>
@@ -155,7 +207,7 @@
                     </li>
                     <li class="flL mb30">
                         <a href="/test/pawsmeetup/preview/meetup" class="over mr20">
-                            <img src="images/meetup6.png" >
+                            <img src="/test/pawsmeetup/img/meetup6.png" >
                             <p class="mt10 mb10 fs16 fwB">
                                 <span class="mr20">参加者</span>
                                 <span class="mr20">99 / 100</span>
@@ -166,7 +218,7 @@
                     </li>
                     <li class="flL mb30">
                         <a href="/test/pawsmeetup/preview/meetup" class="over">
-                            <img src="images/meetup1.png" >
+                            <img src="/test/pawsmeetup/img/meetup1.png" >
                             <p class="mt10 mb10 fs16 fwB">
                                 <span class="mr20">参加者</span>
                                 <span class="mr20">99 / 100</span>
@@ -177,7 +229,7 @@
                     </li>
                 </ul>
 
-                <div id="reading" class="taC "><img src="images/loading.gif" ></div>
+                <div id="reading" class="taC "><img src="/test/pawsmeetup/img/loading.gif" ></div>
 
             </div><!-- /.contents -->
 
@@ -188,4 +240,9 @@
 
 
     </div>
+
+
+
+</body>
+</html>
 

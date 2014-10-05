@@ -10,19 +10,19 @@ knockout.js documentation: http://knockoutjs.com/
 http://localhost:1337
 
 ### API
-## user list
+# user list
 http://localhost:1337/user
 
-## user, id=1
+# user, id=1
 http://localhost:1337/user/1
 
-## logged in user
+# logged in user
 http://localhost:1337/user/me
 
-## create user by registration
+# create user by registration
 http://localhost:1337
 
-## create user by url
+# create user by url
 http://localhost:1337/user/create?email=something&password=something
 
 email: {
@@ -39,13 +39,13 @@ lastName: 'string',
 loggedIn: 'boolean',
 isAdmin: 'boolean',
 
-## meetup list
+# meetup list
 http://localhost:1337/meetup
 
-## meetup, id=1
+# meetup, id=1
 http://localhost:1337/meetup/1
 
-## create meetup by url
+# create meetup by url
 http://localhost:1337/meetup/create?title=something
 
 title: {

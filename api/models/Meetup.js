@@ -21,7 +21,6 @@ schema: true,
 		maxLength: 'integer',
 		datetime: 'datetime',
 		address: 'string',
-		genre: 'string'
   }
 
 };
