@@ -22,8 +22,10 @@ module.exports = {
 		var description = req.param('description') || '';
 		var creator = req.param('creator') || '';
 		var participants = req.param('participants') || '';
-		var max = req.param('maxLength') || '';
-		var dateTime = req.param('dateTime') || '';
+		var maxLength = req.param('maxLength') || '';
+		var from = req.param('from') || '';
+		var to = req.param('to') || '';		
+		var deadline = req.param('deadline') || '';		
 		var address = req.param('address') || '';
 		var business = req.param('business') || '';
 		
@@ -36,24 +38,35 @@ module.exports = {
 			creator: creator,
 			participants: participants,
 			maxLength: maxLength,
-			datetime: datetime,
+			from: from,
+			to: to,
+			deadline: deadline,			
 			address: address,
 			business: business
 
-		}, function(err, user) {
+		}, function(err, meetup) {
+			var id = meetup.id;
 			if(err) {
-        console.log("Error findOrCreate user:", err);
-        return res.redirect('/');
+        console.log("Error findOrCreate meetup:", err);
+        return res.redirect('/meetup_edit');
       }
-			meetup.save(function (err) {
-				if (err) {
-				  console.log('Error logging in');
-				  return res.redirect('/');
-				} else {
-					console.log('save!');
-				}				
-			});
-			return res.redirect('/meetup');
+      // edit meetup
+      if (meetup) {
+      	meetup.save(function (err) {
+					if (err) {
+					  console.log('Error logging in');
+					  return res.redirect('/meetup_edit');
+					} else {
+						console.log('save!');
+					}				
+				});
+				return res.redirect('/meetup');
+			// create meetup
+      } else {
+      	console.log('created meetup!');
+      	return res.redirect('/meetup');
+      }
+			
 		});
 	},
   /**

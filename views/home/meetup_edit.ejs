@@ -3,13 +3,28 @@
   <div class="jumbotron">
     <h1>Edit Meetup</h1>
     <p>
-        <form action="/user/edit" method="post" class="navbar-form">
-            <div class="form-group">
-                edit meetup
+        <form action="/meetup/edit" method="post" class="navbar-form">
+            <div class="form-group" style="font-size: 16px;">
+              <br/>
+              <br/>
+              title:<br/><br/>
+              <input name="title" type="text" placeholder="title"/><br/><br/>
+              description:<br/><br/>
+              <input name="description" type="text" placeholder="description"/><br/><br/>
+              How many participants?<br/><br/>
+              <input name="maxLength" type="text" placeholder="Maximum number of participants"/><br/><br/>
+              From<br/><br/>
+              <input name="from" type="text" placeholder="start time"/><br/><br/>
+              To<br/><br/>
+              <input name="to" type="text" placeholder="end time"/><br/><br/>
+              RSVP deadline<br/><br/>
+              <input name="deadline" type="text" placeholder="date"/><br/><br/>              
+              address:<br/><br/>
+              <input name="address" type="text" placeholder="Address"/><br/><br/><br/>
+              <input type="submit" value="create meetup" class="btn btn-default"/>
+                
             </div>
         </form>
-
-    </p>
   </div>
 
   <div class="footer">

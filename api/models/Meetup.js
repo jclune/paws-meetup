@@ -18,9 +18,12 @@ schema: true,
 		description: 'string',
 		creator: 'string',
 		participants: 'string',
-		maxLength: 'integer',
-		datetime: 'datetime',
+		maxLength: 'string',
+		from: 'string',
+    to: 'string',
+    deadline: 'string',
 		address: 'string',
+		business: 'business'
   }
 
 };

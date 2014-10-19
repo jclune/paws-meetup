@@ -29,11 +29,12 @@ module.exports = {
         console.log("Error findOrCreate user:", err);
         return res.redirect('/');
       }
+      // logged in already
       if (req.session.user) {
       	console.log("logged in already", req.session.user);
       	if (u === '' || u === req.session.user.email ) {
       		console.log('go home fine');
-      		return res.redirect('/home');
+      		return res.redirect('/meetups');
       	} else {
     			console.log('logout', user.email);
 					User.publishUpdate(req.session.user.id, {loggedIn: 0});
@@ -41,6 +42,7 @@ module.exports = {
 					return res.redirect('/');
       	}
       }
+      // login
       if (user && user.password) {
         var match = bcrypt.compareSync(p, user.password);
         if (match) {
@@ -52,17 +54,18 @@ module.exports = {
             } else {
               User.publishUpdate(user.id, {loggedIn: 1 });
               req.session.user = user;
-              return res.redirect('/home');
+              return res.redirect('/meetups');
             }
           });
         } else {
           console.log('Invalid password');
           return res.redirect('/');
         }
+      // create user
       } else {
         console.log('make new user', user);
         //req.session.user = user;
-        return res.redirect('/home');
+        return res.redirect('/meetups');
       }
 		});
 	},
